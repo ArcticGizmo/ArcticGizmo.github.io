@@ -1,0 +1,32 @@
+# Local preview of the site — just run:
+#
+#   docker-compose up        → open http://localhost:4000
+#   Ctrl+C to stop.
+#
+# Two small services:
+#   jekyll  – builds the site (and rebuilds on every edit). Uses the official
+#             jekyll image's baked-in gems, so it needs no gem download — handy
+#             behind a corporate TLS proxy. The site uses only core Jekyll
+#             features, so this renders the same as GitHub Pages.
+#   web     – serves the built _site/ folder over HTTP.
+#
+# On the very first run the page may 404 for a second or two until the first
+# build finishes — just refresh.
+services:
+  jekyll:
+    image: jekyll/jekyll:4
+    entrypoint: jekyll
+    command: build --watch --force_polling
+    volumes:
+      - .:/srv/jekyll
+
+  web:
+    image: python:3-alpine
+    working_dir: /site
+    command: python -m http.server 4000
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./_site:/site
+    depends_on:
+      - jekyll

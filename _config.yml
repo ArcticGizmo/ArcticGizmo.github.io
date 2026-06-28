@@ -1,0 +1,20 @@
+# Site settings
+title: ArcticGizmo
+tagline: Standalone tools & libraries I've built
+description: A launchpad for the open-source tools, libraries, and apps I maintain.
+author: ArcticGizmo
+github_username: ArcticGizmo
+
+# Used to build absolute URLs. For a user page this is your github.io root.
+url: "https://arcticgizmo.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+
+# Files Jekyll should not copy into the built site
+exclude:
+  - README.md
+  - docker-compose.yml
+  - vendor
+  - .github

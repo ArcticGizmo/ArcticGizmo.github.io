@@ -1,0 +1,47 @@
+# ---------------------------------------------------------------------------
+# Your tools live here. To add a new one, copy a block below and edit it.
+# Everything except `name` and `description` is optional — leave fields out
+# and the card simply won't show them.
+#
+#   name:        Display name of the tool
+#   description: One or two sentences. Keep it punchy.
+#   type:        Free-text badge, e.g. CLI / Library / Desktop App
+#   language:    Optional language badge, e.g. Rust, TypeScript, Python
+#   install:     Optional one-line install command shown as a code snippet
+#   tags:        Optional list of short keywords
+#   links:       Optional list of { label, url } buttons (Repo, Docs, Download…)
+# ---------------------------------------------------------------------------
+
+- name: Example CLI Tool
+  description: Replace this with a real tool. A short, clear sentence about what it does and why someone would want it.
+  type: CLI
+  language: Rust
+  install: cargo install example-tool
+  tags: [productivity, terminal]
+  links:
+    - label: Repo
+      url: https://github.com/ArcticGizmo/example-tool
+    - label: Docs
+      url: https://github.com/ArcticGizmo/example-tool#readme
+
+- name: Example Library
+  description: A reusable library that does one thing well. Mention the headline feature here.
+  type: Library
+  language: TypeScript
+  install: npm install example-lib
+  tags: [npm, utilities]
+  links:
+    - label: Repo
+      url: https://github.com/ArcticGizmo/example-lib
+    - label: npm
+      url: https://www.npmjs.com/package/example-lib
+
+- name: Example Desktop App
+  description: A small desktop app for a specific job. Note the platforms it runs on.
+  type: Desktop App
+  tags: [windows, macos]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/example-app/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/example-app
