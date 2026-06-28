@@ -5,6 +5,10 @@
 #
 #   name:        Display name of the tool
 #   description: One or two sentences. Keep it punchy.
+#   logo:        Optional logo shown centered at the top of the card. Either a
+#                local path like /assets/img/my-tool.png (drop the file in
+#                assets/img/) or a full https:// URL. If omitted, the card shows
+#                a lettered badge instead.
 #   type:        Free-text badge, e.g. CLI / Library / Desktop App
 #   language:    Optional language badge, e.g. Rust, TypeScript, Python
 #   install:     Optional one-line install command shown as a code snippet
@@ -12,7 +16,7 @@
 #   links:       Optional list of { label, url } buttons (Repo, Docs, Download…)
 # ---------------------------------------------------------------------------
 
-- name: Example CLI Tool
+- name: Perch
   description: Replace this with a real tool. A short, clear sentence about what it does and why someone would want it.
   type: CLI
   language: Rust

@@ -16,6 +16,11 @@ title: ArcticGizmo — Tools & Libraries
     {% for project in site.data.projects %}
     <li class="card">
       <div class="card-head">
+        {% if project.logo %}
+        <img class="card-logo" src="{% if project.logo contains '://' %}{{ project.logo }}{% else %}{{ project.logo | relative_url }}{% endif %}" alt="{{ project.name }} logo" width="64" height="64" loading="lazy">
+        {% else %}
+        <span class="card-logo card-logo--placeholder" aria-hidden="true">{{ project.name | slice: 0 }}</span>
+        {% endif %}
         <h2 class="card-title">{{ project.name }}</h2>
         <div class="badges">
           {% if project.type %}<span class="badge badge-type">{{ project.type }}</span>{% endif %}
