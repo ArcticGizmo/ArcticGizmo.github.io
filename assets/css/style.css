@@ -90,6 +90,7 @@ a:hover { text-decoration: underline; }
 .card-logo {
   width: 64px;
   height: 64px;
+  padding: 12px;
   border-radius: 16px;
   object-fit: contain;
   background: var(--bg-inset);

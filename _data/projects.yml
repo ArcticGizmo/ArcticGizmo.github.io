@@ -17,35 +17,37 @@
 # ---------------------------------------------------------------------------
 
 - name: Perch
-  description: Replace this with a real tool. A short, clear sentence about what it does and why someone would want it.
-  type: CLI
-  language: Rust
-  install: cargo install example-tool
-  tags: [productivity, terminal]
-  links:
-    - label: Repo
-      url: https://github.com/ArcticGizmo/example-tool
-    - label: Docs
-      url: https://github.com/ArcticGizmo/example-tool#readme
-
-- name: Example Library
-  description: A reusable library that does one thing well. Mention the headline feature here.
-  type: Library
-  language: TypeScript
-  install: npm install example-lib
-  tags: [npm, utilities]
-  links:
-    - label: Repo
-      url: https://github.com/ArcticGizmo/example-lib
-    - label: npm
-      url: https://www.npmjs.com/package/example-lib
-
-- name: Example Desktop App
-  description: A small desktop app for a specific job. Note the platforms it runs on.
+  description: A Windows tray app that watches all your active Claude Code sessions from one floating panel — see what each is doing at a glance, and get pinged when one finishes or needs your input.
+  logo: /assets/img/perch.svg
   type: Desktop App
-  tags: [windows, macos]
+  language: C#
+  tags: [windows, claude-code, tray]
   links:
     - label: Download
-      url: https://github.com/ArcticGizmo/example-app/releases/latest
+      url: https://github.com/ArcticGizmo/perch/releases/latest
     - label: Repo
-      url: https://github.com/ArcticGizmo/example-app
+      url: https://github.com/ArcticGizmo/perch
+
+- name: Otter
+  description: Hands-off Slack status for your calls. Otter quietly detects when you're on a Microsoft Teams call and sets your Slack status for you, then clears it the moment the call ends.
+  logo: /assets/img/otter.png
+  type: Desktop App
+  language: C#
+  tags: [windows, slack, teams, tray]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/otter/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/otter
+
+- name: Chromata
+  description: A lightweight screen colour picker for Windows 11. Hit a hotkey, the screen freezes, click any pixel, and its hex colour lands on your clipboard.
+  logo: /assets/img/chromata.png
+  type: Desktop App
+  language: C#
+  tags: [windows, color-picker, utility]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/chromata/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/chromata
