@@ -17,7 +17,7 @@
 # ---------------------------------------------------------------------------
 
 - name: Perch
-  description: A Windows tray app that watches all your active Claude Code sessions from one floating panel — see what each is doing at a glance, and get pinged when one finishes or needs your input.
+  description: A Windows tray app that watches all your active Claude Code sessions from one panel, pinging you when one finishes or needs input.
   logo: /assets/img/perch.svg
   type: Desktop App
   language: C#
@@ -29,7 +29,7 @@
       url: https://github.com/ArcticGizmo/perch
 
 - name: Otter
-  description: Hands-off Slack status for your calls. Otter quietly detects when you're on a Microsoft Teams call and sets your Slack status for you, then clears it the moment the call ends.
+  description: Hands-off Slack status for your calls — detects when you're on a Microsoft Teams call, sets your Slack status, then clears it when you hang up.
   logo: /assets/img/otter.png
   type: Desktop App
   language: C#
@@ -41,7 +41,7 @@
       url: https://github.com/ArcticGizmo/otter
 
 - name: Chromata
-  description: A lightweight screen colour picker for Windows 11. Hit a hotkey, the screen freezes, click any pixel, and its hex colour lands on your clipboard.
+  description: A lightweight screen colour picker for Windows 11 — hit a hotkey, click any pixel, and its hex colour lands on your clipboard.
   logo: /assets/img/chromata.png
   type: Desktop App
   language: C#
