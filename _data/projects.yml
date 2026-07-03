@@ -51,3 +51,16 @@
       url: https://github.com/ArcticGizmo/chromata/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/chromata
+
+
+- name: Port Hawk
+  description: Find what's holding your file or port — and kill it. No more running random CMD commands to find and kill processes.
+  logo: /assets/img/port-hawk.png
+  type: Desktop App
+  language: C#
+  tags: [windows, process, utility]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/port-hawk/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/port-hawk
