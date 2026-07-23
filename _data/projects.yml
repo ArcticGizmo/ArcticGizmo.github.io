@@ -28,6 +28,30 @@
     - label: Repo
       url: https://github.com/ArcticGizmo/perch
 
+- name: Sprig
+  description: Worktree and infrastructure isolation for any git repo — spin up isolated workspaces, each on its own branch, non-colliding ports, and docker infra, to work on several things in parallel. CLI and desktop app.
+  logo: /assets/img/sprig.svg
+  type: Desktop App
+  language: C#
+  tags: [windows, git, worktree, docker, cli]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/sprig/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/sprig
+
+- name: Foldfinch
+  description: PDF chores made easy. Combine, reorder, remove and rotate pages by drag-and-drop — no subscription, and your originals are never touched.
+  logo: /assets/img/foldfinch.png
+  type: Desktop App
+  language: C#
+  tags: [windows, macos, pdf, utility]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/foldfinch/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/foldfinch
+
 - name: Otter
   description: Hands-off Slack status for your calls — detects when you're on a Microsoft Teams call, sets your Slack status, then clears it when you hang up.
   logo: /assets/img/otter.png
@@ -64,15 +88,3 @@
       url: https://github.com/ArcticGizmo/port-hawk/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/port-hawk
-
-- name: Foldfinch
-  description: PDF chores made easy. Combine, reorder, remove and rotate pages by drag-and-drop — no subscription, and your originals are never touched.
-  logo: /assets/img/foldfinch.png
-  type: Desktop App
-  language: C#
-  tags: [windows, macos, pdf, utility]
-  links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/foldfinch/releases/latest
-    - label: Repo
-      url: https://github.com/ArcticGizmo/foldfinch
