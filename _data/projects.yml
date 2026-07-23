@@ -64,3 +64,15 @@
       url: https://github.com/ArcticGizmo/port-hawk/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/port-hawk
+
+- name: Foldfinch
+  description: PDF chores made easy. Combine, reorder, remove and rotate pages by drag-and-drop — no subscription, and your originals are never touched.
+  logo: /assets/img/foldfinch.png
+  type: Desktop App
+  language: C#
+  tags: [windows, macos, pdf, utility]
+  links:
+    - label: Download
+      url: https://github.com/ArcticGizmo/foldfinch/releases/latest
+    - label: Repo
+      url: https://github.com/ArcticGizmo/foldfinch
