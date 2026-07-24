@@ -13,18 +13,52 @@
 #   language:    Optional language badge, e.g. Rust, TypeScript, Python
 #   install:     Optional one-line install command shown as a code snippet
 #   tags:        Optional list of short keywords
-#   links:       Optional list of { label, url } buttons (Repo, Docs, Download…)
+#
+#   repo:        GitHub "owner/name". Only used to expand bare `downloads` URLs
+#                (see below) — omit it if you always give full URLs.
+#
+#   downloads:   Optional list of { label, url } entries shown in the "Download"
+#                dropdown. Put whatever you like here in whatever order. Each
+#                `url` is EITHER a full https:// URL, OR a bare release-asset
+#                filename which is expanded to that repo's LATEST release:
+#                  https://github.com/<repo>/releases/latest/download/<url>
+#                (a stable link that always points at the newest release — use
+#                this for assets whose name has no version in it).
+#
+#                downloads:
+#                  - label: Windows (.exe)
+#                    url: MyApp-win-Setup.exe          # → latest release asset
+#                  - label: macOS (.dmg)
+#                    url: https://example.com/MyApp.dmg   # → used verbatim
+#
+#   releasesUrl: Optional. If set, adds a "See all releases →" entry at the
+#                bottom of the dropdown pointing here (usually the repo's
+#                releases page).
+#
+#   The Download button only appears when `downloads` has entries OR
+#   `releasesUrl` is set. With only `releasesUrl`, the button links straight
+#   to it instead of opening a menu.
+#
+#   links:       Optional list of { label, url } buttons (Repo, Docs, …) shown
+#                next to the Download button.
 # ---------------------------------------------------------------------------
 
 - name: Perch
-  description: A Windows tray app that watches all your active Claude Code sessions from one panel, pinging you when one finishes or needs input.
+  description: Keep an eye on every Claude Code session from one floating panel — get notified, track your usage and add custom notes to each of your sessions so you always know what needs to be done.
   logo: /assets/img/perch.svg
   type: Desktop App
   language: C#
-  tags: [windows, claude-code, tray]
+  tags: [windows, macos, claude-code, tray]
+  repo: ArcticGizmo/perch
+  downloads:
+    - label: Windows (.exe)
+      url: Perch-win-Setup.exe
+    - label: macOS (.pkg)
+      url: Perch-osx-Setup.pkg
+    - label: macOS (.dmg)
+      url: Perch-osx-arm64.dmg
+  releasesUrl: https://github.com/ArcticGizmo/perch/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/perch/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/perch
 
@@ -34,9 +68,12 @@
   type: Desktop App
   language: C#
   tags: [windows, git, worktree, docker, cli]
+  repo: ArcticGizmo/sprig
+  downloads:
+    - label: Windows (.exe)
+      url: Sprig-win-Setup.exe
+  releasesUrl: https://github.com/ArcticGizmo/sprig/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/sprig/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/sprig
 
@@ -46,9 +83,14 @@
   type: Desktop App
   language: C#
   tags: [windows, macos, pdf, utility]
+  repo: ArcticGizmo/foldfinch
+  downloads:
+    - label: Windows (.exe)
+      url: Foldfinch-win-Setup.exe
+    - label: macOS (.pkg)
+      url: Foldfinch-osx-arm64-Setup.pkg
+  releasesUrl: https://github.com/ArcticGizmo/foldfinch/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/foldfinch/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/foldfinch
 
@@ -58,9 +100,12 @@
   type: Desktop App
   language: C#
   tags: [windows, slack, teams, tray]
+  repo: ArcticGizmo/otter
+  downloads:
+    - label: Windows (.exe)
+      url: Otter-win-Setup.exe
+  releasesUrl: https://github.com/ArcticGizmo/otter/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/otter/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/otter
 
@@ -70,9 +115,12 @@
   type: Desktop App
   language: C#
   tags: [windows, color-picker, utility]
+  repo: ArcticGizmo/chromata
+  downloads:
+    - label: Windows (.exe)
+      url: Chromata-win-Setup.exe
+  releasesUrl: https://github.com/ArcticGizmo/chromata/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/chromata/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/chromata
 
@@ -83,8 +131,11 @@
   type: Desktop App
   language: C#
   tags: [windows, process, utility]
+  repo: ArcticGizmo/port-hawk
+  downloads:
+    - label: Windows (.exe)
+      url: PortHawk-win-Setup.exe
+  releasesUrl: https://github.com/ArcticGizmo/port-hawk/releases/latest
   links:
-    - label: Download
-      url: https://github.com/ArcticGizmo/port-hawk/releases/latest
     - label: Repo
       url: https://github.com/ArcticGizmo/port-hawk

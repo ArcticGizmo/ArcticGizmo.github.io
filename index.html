@@ -41,11 +41,35 @@ title: ArcticGizmo — Tools & Libraries
       </ul>
       {% endif %}
 
-      {% if project.links %}
-      <div class="links">
+      {% assign dl_count = project.downloads | size %}
+      {% if dl_count > 0 or project.releasesUrl or project.links %}
+      <div class="links card-actions">
+        {% if dl_count > 0 %}
+        {% assign dl_base = 'https://github.com/' | append: project.repo | append: '/releases/latest/download/' %}
+        <details class="dropdown">
+          <summary class="btn btn-dl">
+            Download
+            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </summary>
+          <div class="menu" role="menu">
+            {% for dl in project.downloads %}
+            <a class="menu-item" role="menuitem" href="{% if dl.url contains '://' %}{{ dl.url }}{% else %}{{ dl_base }}{{ dl.url }}{% endif %}">{{ dl.label }}</a>
+            {% endfor %}
+            {% if project.releasesUrl %}
+            <div class="menu-sep" role="separator"></div>
+            <a class="menu-item menu-item--muted" role="menuitem" href="{{ project.releasesUrl }}">See all releases →</a>
+            {% endif %}
+          </div>
+        </details>
+        {% elsif project.releasesUrl %}
+        <a class="btn btn-dl" href="{{ project.releasesUrl }}">Download</a>
+        {% endif %}
+
+        {% if project.links %}
         {% for link in project.links %}
         <a class="btn" href="{{ link.url }}">{{ link.label }}</a>
         {% endfor %}
+        {% endif %}
       </div>
       {% endif %}
     </li>
