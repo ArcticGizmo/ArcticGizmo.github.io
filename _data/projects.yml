@@ -77,6 +77,21 @@
     - label: Repo
       url: https://github.com/ArcticGizmo/sprig
 
+- name: Hypertree
+  description: 4D chess of virtual desktops. Give each task its own branch — a named stack of Windows desktops hanging below an anchor — then dive in and surface back out with a keystroke.
+  logo: /assets/img/hypertree.svg
+  type: Desktop App
+  language: C#
+  tags: [windows, virtual-desktops, tray, productivity]
+  repo: ArcticGizmo/hypertree
+  downloads:
+    - label: Windows (.exe)
+      url: Hypertree-win-Setup.exe
+  releasesUrl: https://github.com/ArcticGizmo/hypertree/releases/latest
+  links:
+    - label: Repo
+      url: https://github.com/ArcticGizmo/hypertree
+
 - name: Foldfinch
   description: PDF chores made easy. Combine, reorder, remove and rotate pages by drag-and-drop — no subscription, and your originals are never touched.
   logo: /assets/img/foldfinch.png
