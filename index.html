@@ -8,70 +8,34 @@ title: ArcticGizmo — Tools & Libraries
   <h1>{{ site.title }}</h1>
   <p class="tagline">{{ site.tagline }}</p>
   <a class="hero-link" href="https://github.com/{{ site.github_username }}">
-    View all repositories on GitHub →
+    View all repositories on GitHub &rarr;
   </a>
 </header>
 
 <section class="projects" aria-label="Projects">
-  <ul class="card-grid">
-    {% for project in site.data.projects %}
-    <li class="card">
-      <div class="card-head">
+  {% assign tools = site.tools | sort: "order" %}
+  <ul class="tool-list">
+    {% for project in tools %}
+    <li>
+      <a class="row-card" href="{{ project.url | relative_url }}">
         {% if project.logo %}
-        <img class="card-logo" src="{% if project.logo contains '://' %}{{ project.logo }}{% else %}{{ project.logo | relative_url }}{% endif %}" alt="{{ project.name }} logo" width="64" height="64" loading="lazy">
+        <img class="row-logo" src="{% if project.logo contains '://' %}{{ project.logo }}{% else %}{{ project.logo | relative_url }}{% endif %}" alt="" width="56" height="56" loading="lazy">
         {% else %}
-        <span class="card-logo card-logo--placeholder" aria-hidden="true">{{ project.name | slice: 0 }}</span>
+        <span class="row-logo row-logo--placeholder" aria-hidden="true">{{ project.name | slice: 0 }}</span>
         {% endif %}
-        <h2 class="card-title">{{ project.name }}</h2>
-        <div class="badges">
-          {% if project.type %}<span class="badge badge-type">{{ project.type }}</span>{% endif %}
-          {% if project.language %}<span class="badge">{{ project.language }}</span>{% endif %}
-        </div>
-      </div>
 
-      <p class="card-desc">{{ project.description }}</p>
-
-      {% if project.install %}
-      <pre class="install"><code>{{ project.install }}</code></pre>
-      {% endif %}
-
-      {% if project.tags %}
-      <ul class="tags">
-        {% for tag in project.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
-      </ul>
-      {% endif %}
-
-      {% assign dl_count = project.downloads | size %}
-      {% if dl_count > 0 or project.releasesUrl or project.links %}
-      <div class="links card-actions">
-        {% if dl_count > 0 %}
-        {% assign dl_base = 'https://github.com/' | append: project.repo | append: '/releases/latest/download/' %}
-        <details class="dropdown">
-          <summary class="btn btn-dl">
-            Download
-            <svg class="chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </summary>
-          <div class="menu" role="menu">
-            {% for dl in project.downloads %}
-            <a class="menu-item" role="menuitem" href="{% if dl.url contains '://' %}{{ dl.url }}{% else %}{{ dl_base }}{{ dl.url }}{% endif %}">{{ dl.label }}</a>
-            {% endfor %}
-            {% if project.releasesUrl %}
-            <div class="menu-sep" role="separator"></div>
-            <a class="menu-item menu-item--muted" role="menuitem" href="{{ project.releasesUrl }}">See all releases →</a>
-            {% endif %}
+        <div class="row-body">
+          <h2 class="row-title">{{ project.name }}</h2>
+          {% if project.subtitle %}<p class="row-subtitle">{{ project.subtitle }}</p>{% endif %}
+          <div class="chips">
+            {% if project.type %}<span class="chip chip--type">{{ project.type }}</span>{% endif %}
+            {% if project.language %}<span class="chip">{{ project.language }}</span>{% endif %}
+            {% for tag in project.tags %}<span class="chip chip--tag">{{ tag }}</span>{% endfor %}
           </div>
-        </details>
-        {% elsif project.releasesUrl %}
-        <a class="btn btn-dl" href="{{ project.releasesUrl }}">Download</a>
-        {% endif %}
+        </div>
 
-        {% if project.links %}
-        {% for link in project.links %}
-        <a class="btn" href="{{ link.url }}">{{ link.label }}</a>
-        {% endfor %}
-        {% endif %}
-      </div>
-      {% endif %}
+        <svg class="row-arrow" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3 10.5 8l-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </li>
     {% endfor %}
   </ul>

@@ -17,28 +17,5 @@
       Built by <a href="https://github.com/{{ site.github_username }}">{{ site.author }}</a>
     </p>
   </footer>
-  <script>
-    (function () {
-      var dropdowns = document.querySelectorAll('details.dropdown');
-      // Close the others when one opens.
-      dropdowns.forEach(function (d) {
-        d.addEventListener('toggle', function () {
-          if (!d.open) return;
-          dropdowns.forEach(function (o) { if (o !== d) o.removeAttribute('open'); });
-        });
-      });
-      // Click outside closes any open menu.
-      document.addEventListener('click', function (e) {
-        dropdowns.forEach(function (d) {
-          if (d.open && !d.contains(e.target)) d.removeAttribute('open');
-        });
-      });
-      // Escape closes any open menu.
-      document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Escape') return;
-        dropdowns.forEach(function (d) { d.removeAttribute('open'); });
-      });
-    })();
-  </script>
 </body>
 </html>

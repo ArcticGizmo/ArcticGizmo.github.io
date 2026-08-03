@@ -12,9 +12,26 @@ baseurl: ""
 # Build settings
 markdown: kramdown
 
+# Collections
+# Each tool is one file in _tools/. It gets its own page at /tools/<name>/.
+collections:
+  tools:
+    output: true
+    permalink: /tools/:name/
+
+# Default layout for every tool page.
+defaults:
+  - scope:
+      path: ""
+      type: tools
+    values:
+      layout: tool
+
 # Files Jekyll should not copy into the built site
 exclude:
   - README.md
   - docker-compose.yml
   - vendor
   - .github
+  - _tool-template.md
+  - docs

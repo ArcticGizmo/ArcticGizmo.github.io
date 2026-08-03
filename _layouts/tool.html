@@ -1,0 +1,152 @@
+---
+layout: default
+---
+{% assign p = page %}
+{% assign dl_base = 'https://github.com/' | append: p.repo | append: '/releases/latest/download/' %}
+
+<div class="tool-page">
+<a class="back-link" href="{{ '/' | relative_url }}">
+  <svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true"><path d="M7.5 2 3.5 6l4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  All tools
+</a>
+
+<article class="tool">
+  <header class="tool-hero">
+    <h1 class="tool-title">{{ p.name }}</h1>
+
+    {% if p.logo %}
+    <img class="tool-logo" src="{% if p.logo contains '://' %}{{ p.logo }}{% else %}{{ p.logo | relative_url }}{% endif %}" alt="{{ p.name }} logo" width="104" height="104">
+    {% else %}
+    <span class="tool-logo tool-logo--placeholder" aria-hidden="true">{{ p.name | slice: 0 }}</span>
+    {% endif %}
+
+    {% if p.subtitle %}<p class="tool-subtitle">{{ p.subtitle }}</p>{% endif %}
+
+    <div class="chips">
+      {% if p.type %}<span class="chip chip--type">{{ p.type }}</span>{% endif %}
+      {% if p.language %}<span class="chip">{{ p.language }}</span>{% endif %}
+      {% for tag in p.tags %}<span class="chip chip--tag">{{ tag }}</span>{% endfor %}
+    </div>
+
+    {% if p.links %}
+    <div class="tool-links">
+      {% for link in p.links %}
+      <a class="btn btn-primary" href="{{ link.url }}">
+        {{ link.label }}
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3 10.5 8l-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if content != '' %}
+  <section class="tool-about" aria-label="About">
+    <div class="prose" id="about-body" data-clamp>
+      {{ content }}
+    </div>
+    <button class="see-more" type="button" hidden aria-expanded="false" aria-controls="about-body">See more</button>
+  </section>
+  {% endif %}
+
+  {% if p.platforms %}
+  <section class="tool-install" aria-label="How to install">
+    <h2 class="section-title">How to install</h2>
+    <div class="os-grid">
+      {% for plat in p.platforms %}
+      {% assign os = plat.os | downcase %}
+      {% case os %}
+        {% when 'windows' 'win' %}{% assign os_name = 'Windows' %}
+        {% when 'macos' 'mac' 'osx' 'darwin' %}{% assign os_name = 'macOS' %}
+        {% when 'linux' %}{% assign os_name = 'Linux' %}
+        {% else %}{% assign os_name = plat.os %}
+      {% endcase %}
+      <div class="os-card">
+        <div class="os-head">
+          {% include os-icon.html os=plat.os %}
+          <span class="os-name">{{ os_name }}</span>
+        </div>
+
+        {% if plat.install %}
+        <div class="oneliner">
+          {% if plat.install_label %}<span class="oneliner-label">{{ plat.install_label }}</span>{% endif %}
+          <div class="install-wrap">
+            <pre class="install"><code>{{ plat.install }}</code></pre>
+            <button class="copy-btn" type="button" aria-label="Copy command to clipboard" title="Copy">
+              <svg class="icon-copy" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 5.5V4A1.5 1.5 0 0 0 9 2.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <svg class="icon-check" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if plat.downloads %}
+        <div class="os-downloads">
+          {% for dl in plat.downloads %}
+          <a class="dl-row" href="{% if dl.url contains '://' %}{{ dl.url }}{% else %}{{ dl_base }}{{ dl.url }}{% endif %}">
+            <span class="dl-label">{{ dl.label }}</span>
+            <svg class="dl-icon" width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v9m0 0L4.5 7M8 10.5 11.5 7M2.5 13.5h11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if p.releasesUrl %}
+    <a class="all-releases" href="{{ p.releasesUrl }}">See all releases &rarr;</a>
+    {% endif %}
+  </section>
+  {% endif %}
+</article>
+</div>
+
+<script>
+  (function () {
+    var body = document.getElementById('about-body');
+    var btn = document.querySelector('.see-more');
+    if (!body || !btn) return;
+    // Only offer "see more" when the text is actually clipped.
+    if (body.scrollHeight - body.clientHeight > 4) {
+      btn.hidden = false;
+    }
+    btn.addEventListener('click', function () {
+      var expanded = body.classList.toggle('is-expanded');
+      btn.setAttribute('aria-expanded', String(expanded));
+      btn.textContent = expanded ? 'See less' : 'See more';
+    });
+  })();
+
+  // Copy-to-clipboard for install one-liners.
+  (function () {
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var code = btn.closest('.install-wrap').querySelector('code');
+        if (!code) return;
+        var text = code.textContent.trim();
+        var done = function () {
+          btn.classList.add('is-copied');
+          btn.setAttribute('title', 'Copied!');
+          setTimeout(function () {
+            btn.classList.remove('is-copied');
+            btn.setAttribute('title', 'Copy');
+          }, 1600);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () {});
+        } else {
+          // Fallback for insecure contexts / older browsers.
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      });
+    });
+  })();
+</script>
