@@ -1,6 +1,6 @@
 ---
 name: Emuwren
-order: 4
+order: 3
 subtitle: Create, configure & debug Android emulators — no Android Studio required.
 logo: /assets/img/emuwren.svg
 type: Desktop App

@@ -1,6 +1,6 @@
 ---
 name: Hypertree
-order: 3
+order: 2
 subtitle: 4D chess of virtual desktops — one branch per task.
 logo: /assets/img/hypertree.svg
 type: Desktop App
