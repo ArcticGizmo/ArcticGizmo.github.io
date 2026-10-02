@@ -1,6 +1,6 @@
 ---
 name: Otter
-order: 6
+order: 7
 subtitle: Hands-off Slack status for your calls.
 logo: /assets/img/otter.png
 type: Desktop App
