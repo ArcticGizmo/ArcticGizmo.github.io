@@ -1,6 +1,6 @@
 ---
 name: Port Hawk
-order: 9
+order: 10
 subtitle: Find what's holding your file or port — and kill it.
 logo: /assets/img/port-hawk.png
 type: Desktop App

@@ -1,6 +1,6 @@
 ---
 name: Chromata
-order: 8
+order: 9
 subtitle: A lightweight screen colour picker for Windows 11.
 logo: /assets/img/chromata.png
 type: Desktop App

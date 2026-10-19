@@ -1,6 +1,6 @@
 ---
 name: Foldfinch
-order: 6
+order: 7
 subtitle: PDF chores made easy — combine, reorder, remove & rotate pages.
 logo: /assets/img/foldfinch.png
 type: Desktop App

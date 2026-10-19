@@ -1,6 +1,6 @@
 ---
 name: Shrike
-order: 10
+order: 11
 subtitle: A snappy, tray-resident replacement for the Windows Snipping Tool.
 logo: /assets/img/shrike.png
 type: Desktop App
